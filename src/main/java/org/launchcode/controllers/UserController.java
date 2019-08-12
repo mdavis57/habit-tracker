@@ -26,6 +26,12 @@ public class UserController {
         return userService.getAll();
     }
 
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public User findById(@PathVariable Long id) { return userService.getUser(id); }
+
+
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.OK)
     public User addNew(@RequestBody User user) {

@@ -18,6 +18,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUser(Long id) { return userRepository.findOne(id); }
+
     public User addUser(User user) {
         return userRepository.save(user);
     }
