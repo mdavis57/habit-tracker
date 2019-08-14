@@ -4,8 +4,11 @@ package org.launchcode.controllers;
 import org.launchcode.model.User;
 import org.launchcode.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
 
 @CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
@@ -34,8 +37,11 @@ public class UserController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.OK)
-    public User addNew(@RequestBody User user) {
+    public User addNew(@Valid @RequestBody User user) {
+
         return userService.addUser(user);
+
     }
+
 
 }
