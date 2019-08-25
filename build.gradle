@@ -29,11 +29,16 @@ repositories {
 }
 
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework.boot:spring-boot-starter-security'
+	testCompile 'org.springframework.security:spring-security-test'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('mysql:mysql-connector-java')
 	compile('org.projectlombok:lombok')
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	
+	
+	
 }
