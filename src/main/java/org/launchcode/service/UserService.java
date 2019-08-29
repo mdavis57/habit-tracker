@@ -1,28 +1,24 @@
 
 package org.launchcode.service;
 
-import org.launchcode.model.User;
+import org.launchcode.model.ApplicationUser;
 import org.launchcode.repository.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public class UserService {
     private UserRepository userRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    public List<User> getAll() {
-        return userRepository.findAll();
-    }
-
-    public User getUser(Long id) { return userRepository.findOne(id); }
-
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public ApplicationUser addUser(ApplicationUser applicationUser) {
+        return userRepository.save(applicationUser);
     }
 
 
