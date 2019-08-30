@@ -5,7 +5,6 @@ import org.launchcode.model.ApplicationUser;
 import org.launchcode.repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
 public class UserService {

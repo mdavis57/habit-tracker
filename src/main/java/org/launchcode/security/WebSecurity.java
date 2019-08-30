@@ -1,7 +1,5 @@
 package org.launchcode.security;
 
-import org.launchcode.security.UserDetailService;
-import com.google.common.collect.ImmutableList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -59,10 +57,10 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
 
-        corsConfiguration.setAllowedHeaders(ImmutableList.of("Authorization", "Cache-Control", "Content-Type"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
         corsConfiguration.addExposedHeader(HEADER_STRING);
-        corsConfiguration.setAllowedOrigins(ImmutableList.of("*"));
-        corsConfiguration.setAllowedMethods(ImmutableList.of("HEAD",
+        corsConfiguration.setAllowedOrigins(Arrays.asList("*"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("HEAD",
                 "GET", "POST", "PUT", "DELETE", "PATCH"));
         source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
