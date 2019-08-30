@@ -4,8 +4,6 @@ package org.launchcode.security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.launchcode.model.ApplicationUser;
 import io.jsonwebtoken.Jwts;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
