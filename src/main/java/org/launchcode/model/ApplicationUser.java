@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Data
@@ -26,7 +27,9 @@ public class ApplicationUser {
     @Column(name = "password")
     private String password;
 
-
+    @OneToMany
+    @JoinColumn(name = "id")
+    private List<Habit> habits;
 
 
 }
