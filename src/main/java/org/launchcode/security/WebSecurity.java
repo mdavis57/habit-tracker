@@ -23,16 +23,20 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter {
     private UserDetailService userDetailsService;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
+
     public WebSecurity(UserDetailService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .antMatchers(HttpMethod.POST, LOG_IN_URL).permitAll()
+                .antMatchers(HttpMethod.GET, "/public").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
@@ -48,6 +52,7 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
+
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
@@ -65,4 +70,6 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", corsConfiguration);
         return source;
     }
+
+
 }
