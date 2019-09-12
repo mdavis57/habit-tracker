@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "habits")
+@Table(name = "habit")
 public class Habit {
 
     @Id
@@ -27,8 +27,7 @@ public class Habit {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    private ApplicationUser applicationUser;
+
 
 
 

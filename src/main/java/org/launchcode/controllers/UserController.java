@@ -2,10 +2,12 @@ package org.launchcode.controllers;
 
 
 import org.launchcode.model.ApplicationUser;
+import org.launchcode.model.Habit;
 import org.launchcode.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = { "http://localhost:3000", "http://localhost:4200" })
@@ -28,16 +30,6 @@ public class UserController {
         return userService.getUserId(request);
     }
 
-
-    @GetMapping("/public")
-    public String publicmsg() {
-        return "public mesaage";
-    }
-
-    @GetMapping("/secured")
-    public String secured() {
-        return "Secured message";
-    }
 
 
 }

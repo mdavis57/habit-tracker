@@ -4,6 +4,8 @@ package org.launchcode.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.launchcode.model.ApplicationUser;
+import org.launchcode.model.Habit;
+import org.launchcode.repository.HabitRepository;
 import org.launchcode.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,10 +25,12 @@ import static org.launchcode.security.SecurityConstants.*;
 @Slf4j
 public class UserService {
     private UserRepository userRepository;
+    private HabitRepository habitRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, HabitRepository habitRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.habitRepository = habitRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -59,4 +63,8 @@ public class UserService {
         response.put("userId", appUser.getId());
         return response;
     }
+
+
+
+
 }
