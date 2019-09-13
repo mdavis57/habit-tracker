@@ -40,7 +40,7 @@ public class UserService {
     }
 
 
-    public Map<String, Long> getUserId(HttpServletRequest request)
+    public ApplicationUser getUser(HttpServletRequest request)
     {
         String token = request.getHeader(HEADER_STRING);
 
@@ -57,11 +57,7 @@ public class UserService {
                 .getSubject();
 
         ApplicationUser appUser = userRepository.findByUserName(userName);
-
-        Map<String, Long> response = new HashMap<>();
-
-        response.put("userId", appUser.getId());
-        return response;
+        return appUser;
     }
 
 

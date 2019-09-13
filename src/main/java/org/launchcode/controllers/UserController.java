@@ -25,10 +25,11 @@ public class UserController {
     }
 
     @GetMapping("/user/id")
-    public Map<String, Long> getUserIdForRequest(HttpServletRequest request)
+    public ApplicationUser getUserIdForRequest(HttpServletRequest request)
     {
-        return userService.getUserId(request);
+        return userService.getUser(request);
     }
+
 
 
 

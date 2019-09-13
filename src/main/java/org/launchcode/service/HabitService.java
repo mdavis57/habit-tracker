@@ -37,8 +37,11 @@ public class HabitService {
 
 
     public Habit addHabit(Habit habit) {
+
         return habitRepository.save(habit);
     }
+
+
 
     public List<Habit> getUserHabits(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);

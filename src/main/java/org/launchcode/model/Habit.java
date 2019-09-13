@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -27,8 +27,32 @@ public class Habit {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    private ApplicationUser applicationUser;
+
+    public Long getId() {
+        return id;
+    }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 
+    public void setApplicationUser(ApplicationUser applicationUser) {
+        this.applicationUser = applicationUser;
+    }
 }
